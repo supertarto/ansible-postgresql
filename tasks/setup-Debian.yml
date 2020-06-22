@@ -1,11 +1,11 @@
 ---
 - name: Install PostgreSQL Python libraries.
-  pkg:
+  package:
     name: "{{ postgresql_python_library }}"
     state: present
 
 - name: Install PostgreSQL packages.
-  pkg:
+  package:
     name: "{{ postgresql_packages }}"
     state: present
 
