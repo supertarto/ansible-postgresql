@@ -1,5 +1,4 @@
 ---
----
 - name: Ensure PostgreSQL users are present.
   postgresql_user:
     name: "{{ item.name }}"

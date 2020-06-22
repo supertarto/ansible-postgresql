@@ -25,7 +25,7 @@ postgresql_unix_socket_directories:
   - /var/run/postgresql
 
 postgresql_users:
-# - name: jdoe #required; the rest are optional
+# - name: testuser #required; the rest are optional
 #   password: # defaults to not set
 #   encrypted: # defaults to not set
 #   priv: # defaults to not set
