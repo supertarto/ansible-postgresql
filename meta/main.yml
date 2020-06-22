@@ -1,9 +1,8 @@
 ---
 galaxy_info:
   author: "Xavier Binois"
-  description: " "
-  role_name: 
-  company:
+  description: "Install and configure postgresql."
+  role_name: postgresql
   license: "GNU General Public License v3.0"
   min_ansible_version: 2.8
 
@@ -12,6 +11,8 @@ galaxy_info:
       versions:
         - "buster"
 
-  galaxy_tags: []
+  galaxy_tags:
+    - databases
+    - postgresql
 
 dependencies: []

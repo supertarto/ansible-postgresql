@@ -2,4 +2,25 @@
 - name: Converge
   hosts: all
   roles:
-    - role: supertarto.
+    - role: supertarto.postgresql
+
+  vars:
+    postgresql_databases:
+      - name: example
+    postgresql_users:
+      - name: testuser
+
+  pre_tasks:
+    - name: Update apt cache.
+      apt: 
+        update_cache: true
+        cache_valid_time: 600
+      changed_when: false
+      when: ansible_os_family == 'Debian'
+
+  post_tasks:
+    - name: Verify postgres is running.
+      command: "{{ postgresql_bin_path }}/pg_ctl -D {{ postgresql_data_dir }} status"
+      changed_when: false
+      become: true
+      become_user: postgres
