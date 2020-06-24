@@ -14,6 +14,5 @@
     port: "{{ item.port | default(omit) }}"
     state: "{{ item.state | default('present') }}"
   with_items: "{{ postgresql_users }}"
-  no_log: "true"
   become: true
   become_user: "{{ postgresql_user }}"
