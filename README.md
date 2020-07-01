@@ -61,7 +61,7 @@ postgresql_users:
 #   port: # defaults to not set
 #   state: # defaults to 'present'
 ```
-List of database to create. Only the name is mandatory
+List of database to create. Only the name is mandatory.
 ```yml
 postgresql_databases:
 # - name: exampledb # required; the rest are optional
