@@ -7,7 +7,7 @@ env:
     - ROLE_NAME: postgresql
     - MOLECULE_NO_LOG: false
   matrix:
-    - MOLECULE_DISTRIB: debian10:latest
+    - MOLECULE_DISTRIB: debian10
 
 install:
   - pip install molecule yamllint ansible-lint docker
