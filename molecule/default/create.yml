@@ -162,4 +162,3 @@
       until: docker_jobs.finished
       retries: 300
       with_items: "{{ server.results }}"
-     
