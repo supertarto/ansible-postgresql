@@ -20,7 +20,7 @@ before_script:
   - cd supertarto.$ROLE_NAME
 
 script:
-  - molecule --debug test
+  - python3 molecule test
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
