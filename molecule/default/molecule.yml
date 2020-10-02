@@ -8,7 +8,7 @@ lint: |
   ansible-lint
 platforms:
   - name: instance
-    image: "geerlingguy/docker-${MOLECULE_DISTRIB}-ansible:latest"
+    image: "thetarto/ansible-${MOLECULE_DISTRIB}"
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
