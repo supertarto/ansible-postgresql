@@ -1,5 +1,5 @@
 # Ansible PostgreSQL
-[![Build Status](https://travis-ci.com/supertarto/ansible-postgresql.svg?branch=master)](https://travis-ci.com/supertarto/ansible-postgresql)
+[![CI](https://github.com/supertarto/ansible-postgresql/workflows/CI/badge.svg?event=push)](https://github.com/supertarto/ansible-postgresql/actions?query=workflow%3ACI)
 
 Install and configure Postgresql with Ansible. This role is tested only with Debian.
 
