@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 if [ -z $1 ]
 then
     echo "Usage : $0 databasename"
@@ -12,7 +13,7 @@ BACKUP_DIR="{{ postgresql_dump_path }}"
 USER="{{ postgresql_user }}"
 
 # Dump
-pg_dump -U ${USER} $1 -F p -f $BACKUP_DIR/$BACKUP.sql
+pg_dump -U $USER $1 -F p -f $BACKUP_DIR/$BACKUP.sql
 
 gzip -f $BACKUP_DIR/$BACKUP.sql
 chmod 640 $BACKUP_DIR/$BACKUP.sql.gz

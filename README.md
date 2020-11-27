@@ -24,7 +24,9 @@ postgresql_config_path: "/etc/postgresql/{{ postgresql_version }}/main"
 ```
 Use the provided dump script
 ```yml
-postgresl_use_dump_script: true
+postgresql_use_dump_script: true
+postgresql_dump_path: "/var/local/dump_sql"
+postgresql_dump_path_script: "/var/local/scripts"
 ```
 Name of the psycopg2 librairie to install. Used during the users creation.
 ```yml

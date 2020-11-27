@@ -10,7 +10,7 @@ postgresql_data_dir: "/var/lib/postgresql/{{ postgresql_version }}/main"
 postgresql_bin_path: "/usr/lib/postgresql/{{ postgresql_version }}/bin"
 postgresql_config_path: "/etc/postgresql/{{ postgresql_version }}/main"
 
-postgres_use_dump_script: true
+postgresql_use_dump_script: true
 postgresql_dump_path: "/var/local/dump_sql"
 postgresql_dump_path_script: "/var/local/scripts"
 

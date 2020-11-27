@@ -23,7 +23,7 @@ jobs:
         with:
           path: 'supertarto.postgresql'
 
-      - name: Set up Python 3.
+      - name: Set up Python 3.https://stackoverflow.com/questions/4076439/how-to-spool-utf-8-format-data-in-oracle-database-into-text-file
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
