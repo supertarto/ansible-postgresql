@@ -22,6 +22,10 @@ postgresql_data_dir: "/var/lib/postgresql/{{ postgresql_version }}/main"
 postgresql_bin_path: "/usr/lib/postgresql/{{ postgresql_version }}/bin"
 postgresql_config_path: "/etc/postgresql/{{ postgresql_version }}/main"
 ```
+Use the provided dump script
+```yml
+postgresl_use_dump_script: true
+```
 Name of the psycopg2 librairie to install. Used during the users creation.
 ```yml
 postgresql_python_library: python-psycopg2

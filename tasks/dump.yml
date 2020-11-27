@@ -1,0 +1,33 @@
+---
+- name: Create PostgreSQL dump directory
+  file:
+    path: "{{ postgresql_dump_path }}"
+    state: directory
+    owner: root
+    group: root
+    mode: "0750"
+
+- name: Create PostgreSQL dump script directory
+  file:
+    path: "{{ postgresql_dump_path_script }}"
+    state: directory
+    owner: root
+    group: root
+    mode: "0750"
+
+- name: Copy PostgreSQL dump script
+  template:
+    src: postgres_dump_script.sh.j2
+    dest: "{{ postgresql_dump_path_script }}/postgres_dump_script.sh"
+    owner: root
+    group: root
+    mode: "0750"
+
+- name: Create a cron task for PostgreSQL dump script
+  cron:
+    name: PostgreSQL
+    minute: "22"
+    hour: "12"
+    user: root
+    job: "{{ postgresql_dump_path_script }}/postgres_dump_script.sh {{ item.name }}"
+  with_items: "{{ mariadb_databases }}"

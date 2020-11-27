@@ -14,5 +14,4 @@
     name: "{{ item }}"
     state: present
   with_items: "{{ postgresql_locales }}"
-  notify: Force-restart PostgreSQL after new locales are generated.
-  register: locale_gen_result
+  notify: Restart postgresql

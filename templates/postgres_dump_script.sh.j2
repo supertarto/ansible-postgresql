@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [ -z $1 ]
+then
+    echo "Usage : $0 databasename"
+    exit 1
+fi
+# Variables
+DATE=`date +%y_%m_%d`
+BACKUP=$1_$DATE
+BACKUP_DIR="{{ postgresql_dump_path }}"
+USER="{{ postgresql_user }}"
+
+# Dump
+pg_dump -U ${USER} $1 -F p -f $BACKUP_DIR/$BACKUP.sql
+
+gzip -f $BACKUP_DIR/$BACKUP.sql
+chmod 640 $BACKUP_DIR/$BACKUP.sql.gz
+
+find $BACKUP_DIR -maxdepth 1 -type f -mtime +30 -name "*.gz" -delete

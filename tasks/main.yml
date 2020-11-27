@@ -1,8 +1,8 @@
 ---
 - include_tasks: setup-Debian.yml
-  when: ansible_os_family == 'Debian'
 
 - include_tasks: initialize.yml
+
 - include_tasks: configure.yml
 
 - name: Ensure PostgreSQL is started and enabled on boot.
@@ -14,3 +14,7 @@
 # Configure PostgreSQL.
 - import_tasks: users.yml
 - import_tasks: databases.yml
+- import_tasks: users_properties.yml
+
+- include_tasks: dump.yml
+  when: postgresl_use_dump_script

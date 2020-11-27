@@ -1,10 +1,5 @@
 ---
-- name: restart postgresql
+- name: Restart postgresql
   service:
     name: "{{ postgresql_daemon }}"
     state: "restarted"
-
-- name: Force-restart PostgreSQL after new locales are generated.
-  service:
-    name: "{{ postgresql_daemon }}"
-    state: restarted
