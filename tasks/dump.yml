@@ -30,4 +30,4 @@
     hour: "12"
     user: root
     job: "{{ postgresql_dump_path_script }}/postgres_dump_script.sh {{ item.name }}"
-  with_items: "{{ mariadb_databases }}"
+  with_items: "{{ postgresql_databases }}"
