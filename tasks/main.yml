@@ -17,4 +17,4 @@
 - import_tasks: users_properties.yml
 
 - include_tasks: dump.yml
-  when: postgresl_use_dump_script
+  when: postgresql_use_dump_script
