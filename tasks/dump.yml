@@ -3,24 +3,24 @@
   file:
     path: "{{ postgresql_dump_path }}"
     state: directory
-    owner: root
-    group: root
+    owner: "{{ postgresql_user }}"
+    group: "{{ postgresql_group }}"
     mode: "0750"
 
 - name: Create PostgreSQL dump script directory
   file:
     path: "{{ postgresql_dump_path_script }}"
     state: directory
-    owner: root
-    group: root
+    owner: "{{ postgresql_user }}"
+    group: "{{ postgresql_group }}"
     mode: "0750"
 
 - name: Copy PostgreSQL dump script
   template:
     src: postgres_dump_script.sh.j2
     dest: "{{ postgresql_dump_path_script }}/postgres_dump_script.sh"
-    owner: root
-    group: root
+    owner: "{{ postgresql_user }}"
+    group: "{{ postgresql_group }}"
     mode: "0750"
 
 - name: Create a cron task for PostgreSQL dump script
@@ -28,6 +28,6 @@
     name: PostgreSQL
     minute: "22"
     hour: "12"
-    user: root
+    user: "{{ postgresql_user }}"
     job: "{{ postgresql_dump_path_script }}/postgres_dump_script.sh {{ item.name }}"
   with_items: "{{ postgresql_databases }}"
