@@ -1,6 +1,15 @@
 ---
 - name: Converge
   hosts: all
+  
+  pre_tasks:
+  - name: Update apt cache.
+    apt:
+      update_cache: true
+      cache_valid_time: 600
+    changed_when: false
+    when: ansible_os_family == 'Debian'
+
   roles:
     - role: supertarto.postgresql
 
@@ -9,14 +18,6 @@
       - name: example
     postgresql_users:
       - name: testuser
-
-  pre_tasks:
-    - name: Update apt cache.
-      apt:
-        update_cache: true
-        cache_valid_time: 600
-      changed_when: false
-      when: ansible_os_family == 'Debian'
 
   post_tasks:
     - name: Verify postgres is running.
