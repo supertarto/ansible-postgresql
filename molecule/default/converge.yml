@@ -10,6 +10,12 @@
     changed_when: false
     when: ansible_os_family == 'Debian'
 
+  - name: Install crontab
+    apt:
+      name: cron
+      state: present
+    when: ansible_os_family == 'Debian'
+
   roles:
     - role: supertarto.postgresql
 
