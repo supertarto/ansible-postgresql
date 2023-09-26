@@ -1,5 +1,5 @@
 # Ansible PostgreSQL
-[![CI](https://github.com/supertarto/ansible-postgresql/workflows/CI/badge.svg?event=push)](https://github.com/supertarto/ansible-postgresql/actions?query=workflow%3ACI)
+[![CI](https://github.com/supertarto/ansible-postgresql/actions/workflows/ci.yml/badge.svg)](https://github.com/supertarto/ansible-postgresql/actions/workflows/ci.yml)
 
 Install and configure Postgresql with Ansible. This role is tested only with Debian.
 
