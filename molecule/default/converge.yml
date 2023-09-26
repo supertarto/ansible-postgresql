@@ -1,17 +1,18 @@
 ---
 - name: Converge
   hosts: all
+  become: true
   
   pre_tasks:
   - name: Update apt cache.
-    apt:
+    ansible.builtin.apt:
       update_cache: true
       cache_valid_time: 600
     changed_when: false
     when: ansible_os_family == 'Debian'
 
   - name: Install crontab
-    apt:
+    ansible.builtin.apt:
       name: cron
       state: present
     when: ansible_os_family == 'Debian'
@@ -29,5 +30,4 @@
     - name: Verify postgres is running.
       command: "{{ postgresql_bin_path }}/pg_ctl -D {{ postgresql_data_dir }} status"
       changed_when: false
-      become: true
       become_user: postgres

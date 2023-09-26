@@ -19,43 +19,45 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the codebase.
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           path: 'supertarto.postgresql'
 
-      - name: Set up Python 3.https://stackoverflow.com/questions/4076439/how-to-spool-utf-8-format-data-in-oracle-database-into-text-file
-        uses: actions/setup-python@v2
+      - name: Set up Python 3
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
       - name: Install test dependencies.
-        run: pip3 install ansible ansible-lint
+        run: pip3 install yamllint
 
       - name: Lint code.
         run: |
-          ansible-lint
+          yamllint .
+
   molecule:
     name: Molecule
     runs-on: ubuntu-latest
     strategy:
       matrix:
         distrib:
-          - debian10:latest
-          - debian11:latest
+          - debian10
+          - debian11
+          - debian12
 
     steps:
       - name: Check out the codebase.
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           path: 'supertarto.postgresql'
 
       - name: Set up Python 3.
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: '3.x'
 
       - name: Install test dependencies.
-        run: pip3 install ansible molecule[docker] docker
+        run: pip3 install ansible molecule molecule-plugins[docker] docker
 
       - name: Run Molecule tests.
         run: molecule test

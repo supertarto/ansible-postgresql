@@ -6,6 +6,7 @@ Install and configure Postgresql with Ansible. This role is tested only with Deb
 ## Tested plateform
 * Debian 10 (Buster)
 * Debian 11 (Bulleyes)
+* Debian 12 (Bookworm)
 
 ## Role variables
 A list of package to install.
