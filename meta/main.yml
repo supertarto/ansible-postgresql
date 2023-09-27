@@ -13,7 +13,7 @@ galaxy_info:
     - name: Debian
       versions:
         - buster
-        - bulleyes
+        - bullseye
         - bookworm
 
   galaxy_tags:
